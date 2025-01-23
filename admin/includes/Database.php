@@ -73,9 +73,6 @@ class Database
     function __construct(){
         $this->open_db_connection();
     }
-
-
-
 }
 $database = new Database();
 ?>

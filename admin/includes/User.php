@@ -9,6 +9,7 @@ class User
     public $password;
     public $first_name;
     public $last_name;
+    public $email;
     public $status;
 
     //methods
@@ -58,6 +59,20 @@ class User
 
         return !empty($the_result_array) ? array_shift($the_result_array) : false;
     }
+
+    public static function verify_email($email){
+        global $database;
+        $email = $database->escape_string($email);
+
+        // select * from users where email = $email limit 1
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "email = ?";
+        $sql .= " LIMIT 1";
+
+        $the_result_array = self::find_this_query($sql,[$email]);
+
+        return !empty($the_result_array) ? array_shift($the_result_array) : false;
+    }
     /* CRUD */
     protected static $table_name = 'users';
     /*properties als array voorzien*/
@@ -68,6 +83,7 @@ class User
             'password'=>$this->password,
             'first_name'=>$this->first_name,
             'last_name'=>$this->last_name,
+            'email'=>$this->email,
             'status'=>$this->status
         ];
     }
@@ -161,6 +177,5 @@ class User
 
         $params = [$escaped_id];
         $database->query($sql,$params);
-
     }
 }
