@@ -8,7 +8,7 @@ if(isset($_GET['delete'])) {
     $user = User::find_user_by_id($_GET['delete']);
     if($user) {
         $user->delete();
-        header("Location: users.php");
+        header("Location: users_modals.php");
         exit;
     } else {
         return "<script>alert('Gebruiker niet gevonden!')</script>";

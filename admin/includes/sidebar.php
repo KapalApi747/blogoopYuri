@@ -60,7 +60,7 @@
 
 		            <ul class="submenu ">
 			            <li class="submenu-item  ">
-				            <a href="users.php" class="submenu-link">All Users</a>
+				            <a href="users_modals.php" class="submenu-link">All Users</a>
 			            </li>
 			            <li class="submenu-item  ">
 				            <a href="add_user.php" class="submenu-link">Add User</a>

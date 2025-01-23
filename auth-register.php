@@ -22,6 +22,8 @@ if (isset($_POST['submit'])) {
 
     } elseif ($email_found) {
         $the_message = "This email already exists, please use a different one!";
+        $_SESSION['the_message'] = $the_message;
+        header("Location: auth-register.php");
 
     } elseif ($validation->check_username($username) && $validation->check_email($email) && $validation->check_password($password) && $password === $confirmpassword) {
         $user = new User();
